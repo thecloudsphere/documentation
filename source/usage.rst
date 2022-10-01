@@ -71,5 +71,5 @@ Templates
          type: file
          path: clouds.yaml
        "cloud name": openstack
-       flavor: "SCS:1V:1:10"
+       flavor: "SCS-1V:1:10"
        "public network": public
