@@ -21,6 +21,7 @@ blueprints, are already available as previews.
 .. toctree::
    :maxdepth: 2
 
+   getting-started
    usage
    environments
    blueprints
