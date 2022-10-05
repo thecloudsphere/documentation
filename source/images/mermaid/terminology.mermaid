@@ -1,0 +1,11 @@
+graph TD
+    Enviornment --> Deploymenttemplate
+    Blueprint --> Deploymenttemplate
+    Input_1 --> Deploymenttemplate
+    Input_2 --> Deploymenttemplate
+    Deploymenttemplate --> Deployment
+    Deployment --> State
+    Deployment --> Output_1
+    Deployment --> Output_2
+    Deployment --> Log_1
+    Deployment --> Log_2

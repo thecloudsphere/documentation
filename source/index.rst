@@ -22,6 +22,7 @@ blueprints, are already available as previews.
    :maxdepth: 2
 
    getting-started
+   overview
    usage
    environments
    blueprints
