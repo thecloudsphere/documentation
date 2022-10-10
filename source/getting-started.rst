@@ -24,6 +24,13 @@ the authentication details.
          username: sample
          # password: password
 
+To be sure, check that the configuration is valid.
+
+.. code-block:: console
+
+   timonctl validate config timon.yaml
+   Config timon.yaml is valid.
+
 Before you can use the CLI, you have to log in.
 
 .. code-block:: console
@@ -55,6 +62,13 @@ deployment with Terraform on an OpenStack environment.
        "cloud name": openstack
        flavor: "SCS-1V:1:10"
        "public network": public
+
+To be sure, check that the template is valid.
+
+.. code-block:: console
+
+   timonctl validate template sample.yaml
+   Template sample.yaml is valid.
 
 This example uses a ``clouds.yaml`` file, which is located in the same
 directory as the ``sample.yaml`` file. The content of this file depends
