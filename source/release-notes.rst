@@ -2,8 +2,20 @@
 Release notes
 =============
 
-1.0.0
-=====
+The release notes were launched on 11.10.2022. At this point, the
+minimum functionality of Timon was achieved. The MVP was usable both
+via API itself and via the CLI (``timonctl``). A UI was not yet
+available at that time.
+
+1.0.0 (Nighthawk)
+=================
+
+.. note::
+
+   Version 1.0.0 is currently in progress and not yet published.
+
+Version 1.0.0 contains the status of the MVP as well as all enhancements
+already identified and implemented during the evaluation phase of the MVP.
 
 Blueprint: environment overrides
 --------------------------------
