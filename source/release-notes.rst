@@ -67,4 +67,4 @@ The overrides supported by an environment can be defined via the
 parameter ``supported_overrides`` at the environment. If ``supported_overrides``
 is not set, no overrides are supported. All supported overrides must be
 explicitly listed. If overrides are set that are not supported by an environment,
-a WARNING is issued and the override is ignored.
+a ``WARNING`` is issued and the override is ignored.

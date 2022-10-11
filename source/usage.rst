@@ -5,6 +5,9 @@ Usage
 Installation
 ============
 
+* https://github.com/timontech/timonctl
+* https://pypi.org/project/timonctl/
+
 .. code-block:: console
 
    pip3 install timonctl
@@ -29,18 +32,28 @@ Profiles
 
    profiles:
      default:
-       api_url: http://api.timon.osism.tech/api/
-       api_version: 1
+       api_url: https://api.timon.osism.tech/api/
+       api_version: v1
+       # insecure: false
        auth:
          username:
          organisation_name:
          project_name:
-         password:
-         # token_id:
-         # token_secret:
+         # password:
 
-Schema
-======
+Validation
+----------
+
+A configuration can be validated with the ``validate`` command of ``timonctl``
+and the following Yamale schema. If ``timonctl`` is used with an invalid configuration,
+an ``ERROR`` message is displayed.
+
+.. code-block:: console
+
+   timonctl validate config timon.yaml
+   Config timon.yaml is valid.
+
+The scheme for validating the configuration was written for `Yamale <https://github.com/23andMe/Yamale>`_.
 
 .. literalinclude:: schemas/schema.config.yaml
    :language: yaml
@@ -54,9 +67,12 @@ Log in to a Timon service:
 .. code-block:: console
 
    timonctl login
+   Password:
+   Logged in successfully.
 
 Log out from a Timon service:
 
 .. code-block:: console
 
    timonctl logout
+   Logged out successfully.
