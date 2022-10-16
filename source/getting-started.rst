@@ -55,7 +55,7 @@ deployment with Terraform on an OpenStack environment.
        repository_server: https://github.com
      blueprint_version: main
      inputs:
-       prefix: terraform
+       prefix: "{{ timon.name }}"
        clouds.yaml:
          type: file
          path: clouds.yaml
