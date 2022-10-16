@@ -68,3 +68,48 @@ parameter ``supported_overrides`` at the environment. If ``supported_overrides``
 is not set, no overrides are supported. All supported overrides must be
 explicitly listed. If overrides are set that are not supported by an environment,
 a ``WARNING`` is issued and the override is ignored.
+
+Blueprint/Environment/Template: use of template strings
+-------------------------------------------------------
+
+When executing a deployment, certain variables are set that always can be used.
+
+* ``timon.id``: the UUID of a deployment
+* ``timon.name``: the name of a deployment
+* ``timon.created_at``: the timestamp when a deployment was initially requested
+
+These variables can now be accessed within the ``inputs`` and ``outputs`` by using
+`Jinja2 <https://jinja.palletsprojects.com/en/3.1.x/>`_.
+
+.. code-block:: yaml
+
+   inputs:
+     prefix: "{{ timon.id }}"
+
+Additional variables are available in the output. In addition to the standard ``timon.*``
+templates, inputs can also be accessed there. However, it is only possible to
+access inputs of the type ``environment``.
+
+For example, if the following input is defined for a blueprint, it can be accessed
+in the ``outputs`` via ``inputs.environment``.
+
+.. code-block:: yaml
+
+   inputs:
+     - name: environment
+       destination:
+         path: ENVIRONMENT
+         type: environment
+       default: betacloud
+       required: false
+       description: |
+         Environment to use.
+
+   outputs:
+     - name: private_key
+       source:
+         path: ".id_rsa.{{ inputs.environment }}"
+         type: ssh
+       description: |
+         Private SSH key to access the manager instance
+       visibility: private
