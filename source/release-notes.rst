@@ -113,3 +113,36 @@ in the ``outputs`` via ``inputs.environment``.
        description: |
          Private SSH key to access the manager instance
        visibility: private
+
+API: deployment states endpoint
+-------------------------------
+
+The deployment states endpoint can be used to list all existing states in a
+deployment or to download a specific state.
+
+* ``/deployments/{project_id}/{deployment_id}/states``
+* ``/deployments/{project_id}/{deployment_id}/states/{version_id}``
+
+The command in the CLI is ``timonctl deployment states``. For the listing of
+all states, only the name or the ID of the deployment is given.
+
+.. code-block:: console
+
+   timonctl deployment states hello-world
+   +--------------------------------------+----------------------------------+
+   | version_id                           | last_modified                    |
+   |--------------------------------------+----------------------------------|
+   | adad1499-8aca-4b54-ba30-86fb7dfc9412 | 2022-10-16T16:08:26.746000+00:00 |
+   | 24962ce5-92dc-4a87-a27e-487859f840e4 | 2022-10-16T15:45:04.028000+00:00 |
+   | 4c9ef664-f89b-460d-97eb-be0c951e838d | 2022-10-16T15:31:24.197000+00:00 |
+   | aafcf490-d782-4c7d-80b1-38a9ce063147 | 2022-10-16T15:28:30.014000+00:00 |
+   +--------------------------------------+----------------------------------+
+
+To download a specific state, the ID of the state is also specified.
+
+.. code-block:: console
+
+   timonctl deployment states hello-world adad1499-8aca-4b54-ba30-86fb7dfc9412
+
+The status is then stored on the local file system in the working directory in a
+file with the name ``adad1499-8aca-4b54-ba30-86fb7dfc9412.tar``.
