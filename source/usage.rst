@@ -70,6 +70,26 @@ Log in to a Timon service:
    Password:
    Logged in successfully.
 
+If you try to log in and there is already an access token, you will not be
+able to log in again.
+
+.. code-block:: console
+
+   timonctl login
+   Already logged in.
+
+To force the login, the parameter ``--force`` can be used. This means that
+a login is performed in any case, even if an access token already exists
+locally. This is useful, for example, when an access token has expired.
+You would then actually have to log out first and then log in. The
+``--force`` parameter saves the logout step.
+
+.. code-block:: console
+
+   timonctl login --force
+   Password:
+   Logged in successfully.
+
 Log out from a Timon service:
 
 .. code-block:: console
