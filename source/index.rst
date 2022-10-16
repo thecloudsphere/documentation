@@ -28,5 +28,6 @@ blueprints, are already available as previews.
    environments
    blueprints
    templates
+   samples
    release-notes
    appendix
