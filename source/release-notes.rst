@@ -146,3 +146,22 @@ To download a specific state, the ID of the state is also specified.
 
 The status is then stored on the local file system in the working directory in a
 file with the name ``adad1499-8aca-4b54-ba30-86fb7dfc9412.tar``.
+
+Template: overwrite the environment
+-----------------------------------
+
+With the parameters ``environment`` and ``environment_version``, it is possible
+to overwrite the environment set via the selected blueprint and its version during
+a template.
+
+In blueprint ``terraform/openstack/minimal``, the ``terraform/opentack`` environment
+is actually used. In this case, the ``python/base`` environment version ``3.10`` is
+used instead.
+
+.. code-block:: yaml
+
+   python-sample:
+     blueprint: terraform/openstack/minimal
+     blueprint_version: main
+     environment: python/base
+     environment_version: "3.10"
