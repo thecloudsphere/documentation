@@ -96,3 +96,10 @@ Log out from a Timon service:
 
    timonctl logout
    Logged out successfully.
+
+If the log in expires once when using the CLI, a message is displayed.
+A new log in is then necessary.
+
+.. code-block:: console
+
+   New log in required. Token for default expired
