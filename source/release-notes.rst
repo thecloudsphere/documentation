@@ -165,3 +165,39 @@ used instead.
      blueprint_version: main
      environment: python/base
      environment_version: "3.10"
+
+Flows
+-----
+
+The purpose of flows is to use the output of a deployment as input for another deployment.
+
+For example, it is possible to first create an infrastructure with a blueprint for Terraform
+and then deploy on the created infrastructure with a blueprint for Ansible. Finally,
+everything can be registered to a local asset management with a script executed in a Python
+environment.
+
+Any number of deployments can be linked together via flows. It is possible to create
+new deployments when starting a flow or to use existing deployments. Or both.
+
+A flow is executed only once. Deployments created by the flow remain after completion and
+are not removed. When a flow is destroyed, all deployments are destroyed independently of
+each other at the moment.
+
+.. code-block:: yaml
+
+   flow-sample:
+     name: Sample for a flow
+     description: |
+       This is a simple sample for a flow.
+     steps:
+       - name: first step
+         description: |
+           This is the first step.
+         template: python-sample
+       - name: second step
+         description: |
+           This is the second step.
+         template: python-sample
+         depends_on: first step
+         outputs_from: first step
+         state_from: first step
