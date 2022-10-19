@@ -201,3 +201,7 @@ each other at the moment.
          depends_on: first step
          outputs_from: first step
          state_from: first step
+
+.. literalinclude:: schemas/schema.flow.yaml
+   :language: yaml
+   :linenos:
