@@ -166,8 +166,8 @@ used instead.
      environment: python/base
      environment_version: "3.10"
 
-Flows
------
+New feature: Flows
+------------------
 
 The purpose of flows is to use the output of a deployment as input for another deployment.
 
