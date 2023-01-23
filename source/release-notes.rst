@@ -17,6 +17,11 @@ available at that time.
 Version 1.0.0 contains the status of the MVP as well as all enhancements
 already identified and implemented during the evaluation phase of the MVP.
 
+Other
+-----
+
+* Python 3.11 is now used as standard in the service container image
+
 Blueprint: environment overrides
 --------------------------------
 
