@@ -2,7 +2,7 @@
 Getting started
 ===============
 
-Install the CLI for Timon with ``pip3 install timonctl``.
+Install the CLI for The Cloudsphere with ``pip3 install timonctl``.
 
 Prerequisite for the use is an account on our public service or on a
 local on-premise installation.

@@ -16,10 +16,10 @@ with Diagram(filename="overview", direction="TB"):
         infrastructure_2 = Custom("", "../logos/diagrams.png")
         infrastructure_3 = Custom("", "../logos/diagrams.png")
 
-    with Cluster("Timon"):
-        timon = APIGateway("Timon orchestrator")
-        storage = S3("Timon storage")
-        registry = ECR("Timon registry")
+    with Cluster("Cloudsphere"):
+        timon = APIGateway("Cloudsphere orchestrator")
+        storage = S3("Cloudsphere storage")
+        registry = ECR("Cloudsphere registry")
 
     with Cluster("Infrastructure As Code"):
         ansible = Ansible("Ansible")

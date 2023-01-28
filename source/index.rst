@@ -1,8 +1,8 @@
-================================
-Welcome to the Timon user guide
-================================
+=========================================
+Welcome to the The Cloudsphere user guide
+=========================================
 
-Timon efficiently manages your cloud infrastructures 🚀
+The Cloudsphere efficiently manages your cloud infrastructures 🚀
 
 Automate infrastructure as code (IaC) provisioning at any scale, at any cloud or
 data center with any tool. Through a single central API. Freely definable cloud

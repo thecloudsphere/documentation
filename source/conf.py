@@ -5,8 +5,8 @@ def setup(app):
 extensions = ["sphinx.ext.todo", "sphinx_fontawesome"]
 source_suffix = ".rst"
 master_doc = "index"
-project = "Timon User Guide"
-copyright = "2022, OSISM GmbH"
+project = "The Cloudsphere User Guide"
+copyright = "2022-2023, OSISM GmbH"
 author = "OSISM GmbH"
 version = ""
 release = ""
@@ -20,7 +20,7 @@ html_show_sourcelink = False
 html_show_copyright = True
 htmlhelp_basename = "documentation"
 html_theme_options = {
-    "nav_title": "Timon User Guide",
+    "nav_title": "The Cloudsphere User Guide",
     "color_primary": "blue",
     "color_accent": "light-blue",
     "globaltoc_depth": 3,
@@ -30,7 +30,7 @@ html_context = {}
 html_logo = "images/logo.png"
 html_static_path = ["_static"]
 latex_elements = {}
-html_title = "Timon User Guide"
+html_title = "The Cloudsphere User Guide"
 html_sidebars = {
     "**": ["logo-text.html", "globaltoc.html", "localtoc.html", "searchbox.html"]
 }

@@ -62,7 +62,7 @@ The scheme for validating the configuration was written for `Yamale <https://git
 Authentication
 ==============
 
-Log in to a Timon service:
+Log in to a Cloudshere service:
 
 .. code-block:: console
 
@@ -90,7 +90,7 @@ You would then actually have to log out first and then log in. The
    Password:
    Logged in successfully.
 
-Log out from a Timon service:
+Log out from a Cloudsphere service:
 
 .. code-block:: console
 
