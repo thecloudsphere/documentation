@@ -225,3 +225,14 @@ parameter. The parameter can be repeated to show multiple columns
    |----+-------------+----------|
    |  0 | hello-world | CREATED  |
    +----+-------------+----------+
+
+New CLI feature: Write outpus to file instead of stdout
+-------------------------------------------------------
+
+With the parameter ``--file``, the output of a deployment can be written
+directly to a file.
+
+.. code-block:: console
+
+   timonctl deployment outputs hello-world private_key --file id_rsa.hello-world
+   Output private_key from deployment hello-world was written to file id_rsa.hello-world.
