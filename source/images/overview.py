@@ -16,7 +16,7 @@ with Diagram(filename="overview"):
         infrastructure_2 = Custom("", "logos/diagrams.png")
         infrastructure_3 = Custom("", "logos/diagrams.png")
 
-    with Cluster("Cloudsphere"):
+    with Cluster("The Cloudsphere"):
         timon = APIGateway("Cloudsphere orchestrator")
         storage = S3("Cloudsphere storage")
         registry = ECR("Cloudsphere registry")
