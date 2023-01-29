@@ -2,12 +2,12 @@
 Getting started
 ===============
 
-Install the CLI for The Cloudsphere with ``pip3 install timonctl``.
+Install the CLI for The Cloudsphere with ``pip3 install tcsctl``.
 
 Prerequisite for the use is an account on our public service or on a
 local on-premise installation.
 
-Create the file ``timon.yaml`` which contains the details of the API and
+Create the file ``tcs.yaml`` which contains the details of the API and
 the authentication details.
 
 .. code-block:: yaml
@@ -15,7 +15,7 @@ the authentication details.
    # log_level: DEBUG
    profiles:
      default:
-       api_url: https://api.timon.osism.tech/api/
+       api_url: https://api.demo.thecloudsphere.io/api/
        api_version: v1
        insecure: false
        auth:
@@ -28,14 +28,14 @@ To be sure, check that the configuration is valid.
 
 .. code-block:: console
 
-   timonctl validate config timon.yaml
-   Config timon.yaml is valid.
+   tcsctl validate config tcs.yaml
+   Config tcs.yaml is valid.
 
 Before you can use the CLI, you have to log in.
 
 .. code-block:: console
 
-   timonctl login
+   tcsctl login
    Password:
    Logged in successfully.
 
@@ -47,15 +47,15 @@ deployment with Terraform on an OpenStack environment.
    terraform-sample:
      environment:
        name: terraform/openstack
-       repository: timontech/registry
+       repository: thecloudsphere/registry
        repository_server: https://github.com
      blueprint:
        name: terraform/openstack/minimal
-       repository: timontech/registry
+       repository: thecloudsphere/registry
        repository_server: https://github.com
      blueprint_version: main
      inputs:
-       prefix: "{{ timon.name }}"
+       prefix: "{{ tcs.name }}"
        clouds.yaml:
          type: file
          path: clouds.yaml
@@ -67,7 +67,7 @@ To be sure, check that the template is valid.
 
 .. code-block:: console
 
-   timonctl validate template sample.yaml
+   tcsctl validate template sample.yaml
    Template sample.yaml is valid.
 
 This example uses a ``clouds.yaml`` file, which is located in the same
@@ -80,36 +80,36 @@ created ``sample.yaml`` file.
 
 .. code-block:: console
 
-   timonctl template import sample.yaml terraform-sample
+   tcsctl template import sample.yaml terraform-sample
 
 A deployment ``hello-world`` can now be created from the template
 ``terraform-sample``.
 
 .. code-block:: console
 
-   timonctl deployment create hello-world terraform-sample
+   tcsctl deployment create hello-world terraform-sample
 
 Once the deployment has been created, the public IP address and the SSH
 keypair for the login can be retrieved via the outputs.
 
 .. code-block:: console
 
-   timonctl deployment outputs hello-world address
+   tcsctl deployment outputs hello-world address
    10.100.3.41
 
 .. code-block:: console
 
-   timonctl deployment outputs hello-world private_key
+   tcsctl deployment outputs hello-world private_key
    -----BEGIN RSA PRIVATE KEY-----
    MIIEpAIBAAKCAQEA1aiAph+QxP0dp18b04b24oE8+e4FFdxULeKiT4vZssuVRrFy
    [...]
 
 The logs that were printed during the creation of the deployment can be
-displayed using the timonctl deployments logs command.
+displayed using the tcsctl deployments logs command.
 
 .. code-block:: console
 
-   timonctl deployment logs --show hello-world create
+   tcsctl deployment logs --show hello-world create
    data.openstack_networking_network_v2.public: Reading...
    data.openstack_networking_network_v2.public: Read complete after 1s [id=665eea18-2b85-427c-b0bf-a6fd040cc0fc]
 
@@ -126,13 +126,13 @@ If the deployment is no longer needed, it can be destroyed.
 
 .. code-block:: console
 
-   timonctl deployment destroy hello-world
+   tcsctl deployment destroy hello-world
 
 All logs from a specific period for a deployment can also be displayed.
 
 .. code-block:: console
 
-   timonctl deployment logs hello-world '15 minutes ago'
+   tcsctl deployment logs hello-world '15 minutes ago'
    +------------+--------------------------------------+---------------------+
    | category   | id                                   | created_at          |
    |------------+--------------------------------------+---------------------|
@@ -148,13 +148,13 @@ The ID of a log entry can be used to display a specific log entry.
 
 .. code-block:: console
 
-   timonctl deployment logs hello-world b0765dac-2f1b-4d7b-84fc-85e328bfa018
-   openstack_compute_keypair_v2.timon: Refreshing state... [id=terraform-keypair]
+   tcsctl deployment logs hello-world b0765dac-2f1b-4d7b-84fc-85e328bfa018
+   openstack_compute_keypair_v2.tcs: Refreshing state... [id=terraform-keypair]
    data.openstack_networking_network_v2.public: Reading...
-   openstack_networking_network_v2.timon: Refreshing state... [id=23b0a0e1-e560-4b50-9bd8-4b7ca9cfc203]
-   openstack_compute_secgroup_v2.timon: Refreshing state... [id=3db448c1-9a3c-495b-aec8-514fd774fdf8]
+   openstack_networking_network_v2.tcs: Refreshing state... [id=23b0a0e1-e560-4b50-9bd8-4b7ca9cfc203]
+   openstack_compute_secgroup_v2.tcs: Refreshing state... [id=3db448c1-9a3c-495b-aec8-514fd774fdf8]
    local_sensitive_file.private_key: Refreshing state... [id=14070ff949339f2a7eb97690cd4f3f7a0c13e2a3]
-   openstack_networking_subnet_v2.timon: Refreshing state... [id=acfb2765-e522-41c1-9178-fab084611a1c]
+   openstack_networking_subnet_v2.tcs: Refreshing state... [id=acfb2765-e522-41c1-9178-fab084611a1c]
    [...]
 
 After a deployment has been destroyed, it can be deleted. All associated logs
@@ -162,11 +162,11 @@ are then also deleted.
 
 .. code-block:: console
 
-   timonctl deployment delete hello-world
+   tcsctl deployment delete hello-world
 
 If you no longer need to use the CLI, you can log out.
 
 .. code-block:: console
 
-   timonctl logout
+   tcsctl logout
    Logged out successfully.

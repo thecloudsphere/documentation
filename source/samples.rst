@@ -18,15 +18,15 @@ Ansible
          path: clouds.yaml
        "cloud name": openstack
        flavor: "SCS-1V:1:10"
-       prefix: "{{ timon.name }}"
+       prefix: "{{ tcs.name }}"
        "public network": public
 
 .. code-block:: console
 
-   timonctl environment import ansible/base
-   timonctl blueprint import ansible/openstack/minimal
-   timonctl template import sample.yaml ansible-sample
-   timonctl deployment create ansible ansible-sample
+   tcsctl environment import ansible/base
+   tcsctl blueprint import ansible/openstack/minimal
+   tcsctl template import sample.yaml ansible-sample
+   tcsctl deployment create ansible ansible-sample
 
 Terraform
 =========
@@ -36,11 +36,11 @@ Terraform
    terraform-sample:
      environment:
        name: terraform/openstack
-       repository: timontech/registry
+       repository: thecloudsphere/registry
        repository_server: https://github.com
      blueprint:
        name: terraform/openstack/minimal
-       repository: timontech/registry
+       repository: thecloudsphere/registry
        repository_server: https://github.com
      blueprint_version: main
      inputs:
@@ -49,10 +49,10 @@ Terraform
          path: clouds.yaml
        "cloud name": openstack
        flavor: "SCS-1V:1:10"
-       prefix: "{{ timon.name }}"
+       prefix: "{{ tcs.name }}"
        "public network": public
 
 .. code-block:: console
 
-   timonctl template import sample.yaml terraform-sample
-   timonctl deployment create terraform terraform-sample
+   tcsctl template import sample.yaml terraform-sample
+   tcsctl deployment create terraform terraform-sample

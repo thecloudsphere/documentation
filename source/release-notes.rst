@@ -4,7 +4,7 @@ Release notes
 
 The release notes were launched on 11.10.2022. At this point, the
 minimum functionality of The Cloudsphere was achieved. The MVP was
-usable both via API itself and via the CLI (``timonctl``).
+usable both via API itself and via the CLI (``tcsctl``).
 
 A UI was not yet available at that time.
 
@@ -132,12 +132,12 @@ deployment or to download a specific state.
 * ``/deployments/{project_id}/{deployment_id}/states``
 * ``/deployments/{project_id}/{deployment_id}/states/{version_id}``
 
-The command in the CLI is ``timonctl deployment states``. For the listing of
+The command in the CLI is ``tcsctl deployment states``. For the listing of
 all states, only the name or the ID of the deployment is given.
 
 .. code-block:: console
 
-   timonctl deployment states hello-world
+   tcsctl deployment states hello-world
    +--------------------------------------+----------------------------------+
    | version_id                           | last_modified                    |
    |--------------------------------------+----------------------------------|
@@ -151,7 +151,7 @@ To download a specific state, the ID of the state is also specified.
 
 .. code-block:: console
 
-   timonctl deployment states hello-world adad1499-8aca-4b54-ba30-86fb7dfc9412
+   tcsctl deployment states hello-world adad1499-8aca-4b54-ba30-86fb7dfc9412
 
 The status is then stored on the local file system in the working directory in a
 file with the name ``adad1499-8aca-4b54-ba30-86fb7dfc9412.tar``.
@@ -223,7 +223,7 @@ parameter. The parameter can be repeated to show multiple columns
 
 .. code-block:: console
 
-   timonctl deployment list --column name --column status
+   tcsctl deployment list --column name --column status
    +----+-------------+----------+
    |    | name        | status   |
    |----+-------------+----------|
@@ -238,5 +238,5 @@ directly to a file.
 
 .. code-block:: console
 
-   timonctl deployment outputs hello-world private_key --file id_rsa.hello-world
+   tcsctl deployment outputs hello-world private_key --file id_rsa.hello-world
    Output private_key from deployment hello-world was written to file id_rsa.hello-world.

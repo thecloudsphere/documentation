@@ -5,18 +5,18 @@ Usage
 Installation
 ============
 
-* https://github.com/timontech/timonctl
-* https://pypi.org/project/timonctl/
+* https://github.com/thecloudsphere/tcsctl
+* https://pypi.org/project/tcsctl/
 
 .. code-block:: console
 
-   pip3 install timonctl
+   pip3 install tcsctl
 
 Configuration
 =============
 
-The configuration is stored in a file ``timon.yaml`` which is located in the
-same directory in which ``timonctl`` is called.
+The configuration is stored in a file ``tcs.yaml`` which is located in the
+same directory in which ``tcsctl`` is called.
 
 Logging
 -------
@@ -32,7 +32,7 @@ Profiles
 
    profiles:
      default:
-       api_url: https://api.timon.osism.tech/api/
+       api_url: https://api.demo.thecloudsphere.io/api/
        api_version: v1
        # insecure: false
        auth:
@@ -44,14 +44,14 @@ Profiles
 Validation
 ----------
 
-A configuration can be validated with the ``validate`` command of ``timonctl``
-and the following Yamale schema. If ``timonctl`` is used with an invalid configuration,
+A configuration can be validated with the ``validate`` command of ``tcsctl``
+and the following Yamale schema. If ``tcsctl`` is used with an invalid configuration,
 an ``ERROR`` message is displayed.
 
 .. code-block:: console
 
-   timonctl validate config timon.yaml
-   Config timon.yaml is valid.
+   tcsctl validate config tcs.yaml
+   Config tcs.yaml is valid.
 
 The scheme for validating the configuration was written for `Yamale <https://github.com/23andMe/Yamale>`_.
 
@@ -66,7 +66,7 @@ Log in to a Cloudshere service:
 
 .. code-block:: console
 
-   timonctl login
+   tcsctl login
    Password:
    Logged in successfully.
 
@@ -75,7 +75,7 @@ able to log in again.
 
 .. code-block:: console
 
-   timonctl login
+   tcsctl login
    Already logged in.
 
 To force the login, the parameter ``--force`` can be used. This means that
@@ -86,7 +86,7 @@ You would then actually have to log out first and then log in. The
 
 .. code-block:: console
 
-   timonctl login --force
+   tcsctl login --force
    Password:
    Logged in successfully.
 
@@ -94,7 +94,7 @@ Log out from a Cloudsphere service:
 
 .. code-block:: console
 
-   timonctl logout
+   tcsctl logout
    Logged out successfully.
 
 If the log in expires once when using the CLI, a message is displayed.
