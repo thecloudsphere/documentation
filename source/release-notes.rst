@@ -3,9 +3,10 @@ Release notes
 =============
 
 The release notes were launched on 11.10.2022. At this point, the
-minimum functionality of Timon was achieved. The MVP was usable both
-via API itself and via the CLI (``timonctl``). A UI was not yet
-available at that time.
+minimum functionality of The Cloudsphere was achieved. The MVP was
+usable both via API itself and via the CLI (``timonctl``).
+
+A UI was not yet available at that time.
 
 1.0.0 (Nighthawk)
 =================
@@ -21,6 +22,9 @@ Other
 -----
 
 * Python 3.11 is now used as standard in the service container image
+* This project was initially developed under the internal development name
+  Timon. In preparation for the first release, it was renamed "The Cloudsphere"
+  (TCS for short).
 
 Blueprint: environment overrides
 --------------------------------
