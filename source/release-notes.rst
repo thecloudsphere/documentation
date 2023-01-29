@@ -210,3 +210,18 @@ each other at the moment.
 .. literalinclude:: schemas/schema.flow.yaml
    :language: yaml
    :linenos:
+
+New CLI feature: Specify the column(s) to include
+-------------------------------------------------
+
+With the ``list`` command, the columns can now be filtered using the ``--column``
+parameter. The parameter can be repeated to show multiple columns
+
+.. code-block:: console
+
+   timonctl deployment list --column name --column status
+   +----+-------------+----------+
+   |    | name        | status   |
+   |----+-------------+----------|
+   |  0 | hello-world | CREATED  |
+   +----+-------------+----------+
