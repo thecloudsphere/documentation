@@ -17,9 +17,9 @@ with Diagram(filename="overview"):
         infrastructure_3 = Custom("", "logos/diagrams.png")
 
     with Cluster("The Cloudsphere"):
-        timon = APIGateway("Cloudsphere orchestrator")
-        storage = S3("Cloudsphere storage")
-        registry = ECR("Cloudsphere registry")
+        timon = APIGateway("Orchestrator")
+        storage = S3("Storage")
+        registry = ECR("Registry")
 
     with Cluster("Infrastructure As Code"):
         ansible = Ansible("Ansible")
