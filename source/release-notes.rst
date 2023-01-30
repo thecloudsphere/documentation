@@ -240,3 +240,43 @@ directly to a file.
 
    tcsctl deployment outputs hello-world private_key --file id_rsa.hello-world
    Output private_key from deployment hello-world was written to file id_rsa.hello-world.
+
+New CLI feature: Control of deployments
+---------------------------------------
+
+There are blueprints that support a console, for example SSH, for control.
+This console can be called up with the command ``tcsctl deployment control``.
+A deployment must be in status CREATED or RECONCILED for the control feature
+to be usable.
+
+Currently, only SSH is supported. In the future, other tools such as ``kubectl``
+will be added.
+
+.. code-block:: console
+
+   tcsctl deployment control hello-world
+   Welcome to Ubuntu 22.04.1 LTS (GNU/Linux 5.15.0-52-generic x86_64)
+   [...]
+   ubuntu@hello-world-instance:~$
+
+Blueprint: Control of deployments
+---------------------------------
+
+The control object can be used to define the necessary values for the
+``tcsctl deployment control`` command in a blueprint. The use of outputs
+of the created deployments is possible via templates.
+
+.. code-block:: yaml
+
+   control:
+     type: ssh
+     arguments:
+       - name: destination
+         value: "{{ outputs.address }}"
+         type: string
+       - name: identity_file
+         value: "{{ outputs.private_key }}"
+         type: file
+       - name: user
+         value: ubuntu
+         type: string
