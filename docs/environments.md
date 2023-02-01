@@ -45,7 +45,17 @@ The following targets must be available:
 * status
 * validate
 
-## Base
+## Configuration
+
+### General information
+
+### Inputs
+
+### Outputs
+
+## Samples
+
+### Base
 
 The ``base`` environment is a minimal environment that can be used as a basis for
 creating useful environments. The container image can be found at
@@ -53,7 +63,7 @@ creating useful environments. The container image can be found at
 and is published on our container image registry
 (``harbor.services.osism.tech/thecloudsphere/base:latest``).
 
-### Containerfile
+#### Containerfile
 
 ```
 ARG UBUNTU_VERSION=22.04
@@ -83,7 +93,7 @@ VOLUME /blueprint /input /output /processing /export /cache
 ENTRYPOINT ["/usr/bin/dumb-init", "--"]
 ```
 
-### run.sh
+#### run.sh
 
 ```
 #!/usr/bin/env bash
@@ -108,7 +118,7 @@ make "$@"
 popd > /dev/null
 ```
 
-### Makefile
+#### Makefile
 
 ```
 import:
@@ -146,7 +156,7 @@ export:
 PHONY: import init validate prepare create reconcile destroy refresh status export
 ```
 
-### Configuration (.tcs.yaml)
+#### .tcs.yaml
 
 ```yaml
 ---
@@ -163,5 +173,3 @@ environment:
   inputs: []
   outputs: []
 ```
-
-## Samples
