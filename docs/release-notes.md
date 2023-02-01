@@ -163,13 +163,13 @@ With the parameters `environment` and `environment_version`, it is
 possible to overwrite the environment set via the selected blueprint and
 its version during a template.
 
-In blueprint `terraform/openstack/minimal`, the `terraform/opentack`
+In blueprint `terraform/openstack/hello-world`, the `terraform/opentack`
 environment is actually used. In this case, the `python/base`
 environment version `3.10` is used instead.
 
 ``` yaml
 python-sample:
-  blueprint: terraform/openstack/minimal
+  blueprint: terraform/openstack/hello-world
   blueprint_version: main
   environment: python/base
   environment_version: "3.10"

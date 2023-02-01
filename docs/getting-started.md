@@ -55,17 +55,17 @@ tcsctl project list
 
 ## Template creation & import
 
-Create the file ``sample.yaml`` which contains a sample template for a
+Create the file ``hello-world.yaml`` which contains a hello-world template for a
 deployment with Terraform on an OpenStack environment.
 
 ```
-terraform-sample:
+terraform-hello-world:
   environment:
     name: terraform/openstack
     repository: thecloudsphere/registry
     repository_server: https://github.com
   blueprint:
-    name: terraform/openstack/minimal
+    name: terraform/openstack/hello-world
     repository: thecloudsphere/registry
     repository_server: https://github.com
   blueprint_version: main
@@ -82,20 +82,20 @@ terraform-sample:
 To be sure, check that the template is valid.
 
 ```
-tcsctl validate template sample.yaml
-Template sample.yaml is valid.
+tcsctl validate template hello-world.yaml
+Template hello-world.yaml is valid.
 ```
 
 This example uses a ``clouds.yaml`` file, which is located in the same directory
-as the ``sample.yaml`` file. The content of this file depends very much on the
+as the ``hello-world.yaml`` file. The content of this file depends very much on the
 OpenStack environment used. Refer to the documentation of the operator of the
 OpenStack environment accordingly.
 
-Import the template ``terraform-sample`` defined in the previously created
-``sample.yaml`` file.
+Import the template ``terraform-hello-world`` defined in the previously created
+``hello-world.yaml`` file.
 
 ```
-tcsctl template import sample.yaml terraform-sample
+tcsctl template import hello-world.yaml terraform-hello-world
 +---------------------+--------------------------------------+
 | Field               | Value                                |
 |---------------------+--------------------------------------|
@@ -103,7 +103,7 @@ tcsctl template import sample.yaml terraform-sample
 | blueprint_version   | main                                 |
 | environment_id      | d4135a7b-4eff-4e25-9f61-618b81b9a147 |
 | environment_version |                                      |
-| name                | terraform-sample                     |
+| name                | terraform-hello-world                |
 | id                  | 05aa4b88-50ed-4dd1-8006-64772ae3f0f9 |
 | created_at          | 2023-01-28 22:26:02                  |
 +---------------------+--------------------------------------+
@@ -122,20 +122,20 @@ tcsctl environment list --column name --column repository
 
 ```
 tcsctl blueprint list --column name --column repository
-+----+-----------------------------+-------------------------+
-|    | name                        | repository              |
-|----+-----------------------------+-------------------------|
-|  0 | terraform/openstack/minimal | thecloudsphere/registry |
-+----+-----------------------------+-------------------------+
++----+---------------------------------+-------------------------+
+|    | name                            | repository              |
+|----+---------------------------------+-------------------------|
+|  0 | terraform/openstack/hello-world | thecloudsphere/registry |
++----+---------------------------------+-------------------------+
 ```
 
 ## Deployment creation
 
 A deployment ``hello-world`` can now be created from the template
-``terraform-sample``.
+``terraform-hello-world``.
 
 ```
-tcsctl deployment create hello-world terraform-sample
+tcsctl deployment create hello-world terraform-hello-world
 +-----------------+--------------------------------------+
 | Field           | Value                                |
 |-----------------+--------------------------------------|
@@ -289,8 +289,8 @@ Previously, we created a simple environment with a blueprint for Terraform.
 Here is a summary of the necessary commands
 
 ```
-tcsctl template import sample.yaml terraform-sample
-tcsctl deployment create hello-world terraform-sample
+tcsctl template import hello-world.yaml terraform-hello-world
+tcsctl deployment create hello-world terraform-hello-world
 tcsctl deployment outputs hello-world address
 tcsctl deployment outputs hello-world private_key
 tcsctl deployment detroy hello-world
@@ -303,8 +303,8 @@ with Ansible. The following commands import a prepared blueprint for Ansible
 and then create the same environment as before with Terraform.
 
 ```
-tcsctl template import sample.yaml ansible-sample
-tcsctl deployment create hello-ansible ansible-sample
+tcsctl template import hello-world.yaml ansible-hello-world
+tcsctl deployment create hello-ansible ansible-hello-world
 tcsctl deployment outputs hello-ansible address
 tcsctl deployment outputs hello-ansible private_key
 tcsctl deployment detroy hello-ansible

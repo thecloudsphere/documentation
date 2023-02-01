@@ -8,9 +8,9 @@ sidebar_position: 60
 
 ``` yaml
 ---
-ansible-sample:
+ansible-hello-world:
   environment: ansible/base
-  blueprint: ansible/openstack/minimal
+  blueprint: ansible/openstack/hello-world
   blueprint_version: main
   inputs:
     clouds.yaml:
@@ -24,21 +24,21 @@ ansible-sample:
 
 ``` console
 tcsctl environment import ansible/base
-tcsctl blueprint import ansible/openstack/minimal
-tcsctl template import sample.yaml ansible-sample
-tcsctl deployment create ansible ansible-sample
+tcsctl blueprint import ansible/openstack/hello-world
+tcsctl template import hello-world.yaml ansible-hello-world
+tcsctl deployment create ansible ansible-hello-world
 ```
 
 ## Terraform
 
 ``` yaml
-terraform-sample:
+terraform-hello-world:
   environment:
     name: terraform/openstack
     repository: thecloudsphere/registry
     repository_server: https://github.com
   blueprint:
-    name: terraform/openstack/minimal
+    name: terraform/openstack/hello-world
     repository: thecloudsphere/registry
     repository_server: https://github.com
   blueprint_version: main
@@ -53,6 +53,6 @@ terraform-sample:
 ```
 
 ``` console
-tcsctl template import sample.yaml terraform-sample
-tcsctl deployment create terraform terraform-sample
+tcsctl template import hello-world.yaml terraform-hello-world
+tcsctl deployment create terraform terraform-hello-world
 ```
