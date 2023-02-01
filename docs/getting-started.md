@@ -261,6 +261,26 @@ openstack_networking_subnet_v2.tcs: Refreshing state... [id=acfb2765-e522-41c1-9
 [...]
 ```
 
+## States
+
+Various IaC tools, for example Terraform, generate a state. This state is
+stored on an object storage and can be downloaded.
+
+```console
+tcsctl deployment states hello-world
++--------------------------------------+----------------------------------+
+| version_id                           | last_modified                    |
+|--------------------------------------+----------------------------------|
+| 1a381eec-14af-4016-820a-611232833e2b | 2023-02-01T21:00:08.904000+00:00 |
+| e2172cad-1bd6-486f-800a-ab14fd781781 | 2023-02-01T20:59:23.626000+00:00 |
++--------------------------------------+----------------------------------+
+```
+
+```console
+tcsctl deployment states hello-world e2172cad-1bd6-486f-800a-ab14fd781781
+State downloaded and saved to e2172cad-1bd6-486f-800a-ab14fd781781.tar
+```
+
 ## Deployment destruction
 
 If the deployment is no longer needed, it can be destroyed.
