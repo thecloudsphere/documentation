@@ -24,6 +24,8 @@ MVP.
 -   This project was initially developed under the internal development
     name Timon. In preparation for the first release, it was renamed
     "The Cloudsphere" (TCS for short).
+-   The documentation has been switched from Sphinx to Docusaurus and
+    is now published on [thecloudsphere.io](https://thecloudsphere.io).
 
 ### Blueprint: environment overrides
 
