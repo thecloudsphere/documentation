@@ -146,9 +146,9 @@ export:
 PHONY: import init validate prepare create reconcile destroy refresh status export
 ```
 
-### .tcs.yaml
+### Configuration (.tcs.yaml)
 
-```
+```yaml
 ---
 environment:
   author: Christian Berendt
