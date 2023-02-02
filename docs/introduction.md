@@ -43,3 +43,17 @@ The generated STDOUT and STDERR as well as the exit code are stored in the datab
 ## Transitions
 
 ![Transitions](transitions.png)
+
+## Comparison with other solutions
+
+### Atlantis
+
+### CDK for Terraform
+
+### Crossplane
+
+### HashiCorp Cloud Platform
+
+### Pulumi
+
+### Red Hat Ansible Automation Platform / AWX
