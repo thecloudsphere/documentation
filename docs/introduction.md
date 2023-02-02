@@ -17,6 +17,12 @@ The Cloudsphere's mission statement is:
 
 ![Overview](overview.png "Overview")
 
+### What is The Cloudsphere?
+
+### What is The Cloudsphere <u>not</u>?
+
+* an alternative to Infrastructure as Code tool X
+
 ## Terminology
 
 ![Terminology](terminology.png)
