@@ -4,15 +4,51 @@ sidebar_position: 20
 
 # Getting started
 
+The objective of the Getting Started Guide is to demonstrate all available
+commands and necessary configuration files as well as concepts in a
+Hello World example, or better Hello Cloudsphere example.
+
+## Requirements
+
+The example used in the guide deploy a small infrastructure to an OpenStack
+cloud. Accordingly, access to an OpenStack account is required.
+
+Actually, a router with an internal IPv4 network is created and an
+instance is started in it. The router is assigned to an external network.
+The instance is assigned a keypair, a floating IP address and a security group.
+
+This guide uses a ``clouds.yaml`` file, which is located in the same directory
+as the ``hello-world.yaml`` file. The content of this file depends very much on the
+OpenStack environment used. Refer to the documentation of the operator of the
+OpenStack environment accordingly.
+
+For reference, here is a possible ``clouds.yaml``.
+
+```yaml
+---
+clouds:
+  openstack:
+    auth:
+      auth_url: https://keystone.services.a.thecloudsphere.io
+      username: default-sandbox
+      password: password
+      project_name: default-sandbox
+      project_domain_name: default
+      user_domain_name: default
+    region_name: RegionA
+    identity_api_version: 3
+```
+
+An account on our public The Cloudsphere service or an account on a local Enterprise
+installation is required.
+
 ## Preparations
 
 Install the CLI for The Cloudsphere with ``pip3 install tcsctl``.
 
-Prerequisite for the use is an account on our public service or on a
-local on-premise installation.
-
 Create the file ``tcs.yaml`` which contains the details of the API and
-the authentication details.
+the authentication details. If ``password`` is not present in the file, it will be
+requested when using ``tcsctl login``.
 
 ```
 # log_level: DEBUG
@@ -37,11 +73,10 @@ Before you can use the CLI, you have to log in.
 
 ```
 tcsctl login
-Password:
 Logged in successfully.
 ```
 
-The list of visible projects allows you to check whether the login was
+The list of usable projects allows you to check whether the login was
 successful.
 
 ```
@@ -85,11 +120,6 @@ To be sure, check that the template is valid.
 tcsctl validate template hello-world.yaml
 Template hello-world.yaml is valid.
 ```
-
-This example uses a ``clouds.yaml`` file, which is located in the same directory
-as the ``hello-world.yaml`` file. The content of this file depends very much on the
-OpenStack environment used. Refer to the documentation of the operator of the
-OpenStack environment accordingly.
 
 Import the template ``terraform-hello-world`` defined in the previously created
 ``hello-world.yaml`` file.
@@ -290,7 +320,8 @@ tcsctl deployment destroy hello-world
 ```
 
 After a deployment has been destroyed, it can be deleted. All associated logs
-are then also deleted.
+are then also deleted. Before the deployment can be deleted, it must be destroyed.
+Otherwise, an error ``423: Locked`` is issued.
 
 ```
 tcsctl deployment delete hello-world

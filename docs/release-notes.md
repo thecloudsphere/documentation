@@ -26,6 +26,9 @@ MVP.
     "The Cloudsphere" (TCS for short).
 -   The documentation has been switched from Sphinx to Docusaurus and
     is now published on [thecloudsphere.io](https://thecloudsphere.io).
+-   The Getting Started Guide from the README of
+    [thecloudsphere/tcsctl](https://github.com/thecloudsphere/tcsctl)
+    has been integrated into the documentation.
 
 ### Blueprint: environment overrides
 
