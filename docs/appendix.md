@@ -6,6 +6,14 @@ sidebar_position: 200
 
 ## Schemas
 
+[Yamale](https://github.com/23andMe/Yamale) is a schema validator for YAML.
+It is used in ``tcsctl`` via the ``validate`` command to check used YAML files
+for correctness.
+
+The schemas are maintained in the
+[thecloudsphere/tcsctl](https://github.com/thecloudsphere/tcsctl/tree/main/tcsctl/schemas)
+repository.
+
 ### Blueprint
 
 ```yaml
@@ -78,6 +86,25 @@ environment_overrides:
 
 ### Client configuration
 
+```yaml
+---
+log_level: enum('INFO', 'DEBUG', required=False)
+profiles: map(str(), include('profile'))
+
+---
+profile:
+  api_url: str()
+  api_version: enum('v1')
+  insecure: bool(required=False)
+  auth: include('auth')
+
+auth:
+  organisation: str(required=False)
+  project: str(required=False)
+  username: str()
+  password: str(required=False)
+```
+
 ### Environment
 
 ```yaml
@@ -123,4 +150,56 @@ source:
 
 ### Flow
 
+```yaml
+---
+map(str(), include('flow'))
+
+---
+flow:
+  name: str()
+  description: str(multiline=True, required=False)
+  steps: list(include('step'), min=1)
+
+step:
+  name: str()
+  description: str(multiline=True, required=False)
+  template: str(required=False)
+  deployment: str(required=False)
+  depends_on: str(required=False)
+  outputs_from: str(required=False)
+  state_from: str(required=False)
+```
+
 ### Template
+
+```yaml
+---
+map(str(), include('template'))
+
+---
+template:
+  blueprint: any(str(), include('blueprint'))
+  blueprint_version: str()
+  environment: any(str(), include('environment'))
+  environment_version: str(required=False)
+  inputs: map(str(), include('input'))
+
+input: any(str(), include('extented_input'))
+
+extented_input:
+  type: enum('file')
+  path: str(required=False)
+  template: bool(required=False)
+
+blueprint:
+  name: str()
+  repository: str(required=False)
+  repository_key: str(required=False, multiline=True)
+  repository_server: str(required=False)
+
+environment:
+  name: str()
+  repository: str(required=False)
+  repository_key: str(required=False, multiline=True)
+  repository_server: str(required=False)
+```
