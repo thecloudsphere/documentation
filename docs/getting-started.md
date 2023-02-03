@@ -44,7 +44,21 @@ installation is required.
 
 ## Preparations
 
+Clone the ``hello-world`` repository.
+
+```console
+git clone https://github.com/thecloudsphere/hello-world
+cd hello-world
+```
+
 Install the CLI for The Cloudsphere with ``pip3 install tcsctl``.
+[pipenv](https://pipenv.pypa.io/en/latest/) can be used for this as well and is the
+preferred way.
+
+```console
+pipenv install
+pipenv shell
+```
 
 Create the file ``tcs.yaml`` which contains the details of the API and
 the authentication details. If ``password`` is not present in the file, it will be
@@ -93,6 +107,9 @@ tcsctl project list
 Create the file ``hello-world.yaml`` which contains a hello-world template for a
 deployment with Terraform on an OpenStack environment.
 
+Flavor, public network or the image to be used must be adapted accordingly depending
+on the OpenStack Cloud.
+
 ```yaml
 terraform-hello-world:
   environment:
@@ -101,7 +118,7 @@ terraform-hello-world:
     repository_server: https://github.com
   blueprint:
     name: terraform/openstack/hello-world
-    repository: thecloudsphere/registry
+    repository: thecloudsphere/hello-world
     repository_server: https://github.com
   blueprint_version: main
   inputs:
@@ -111,6 +128,7 @@ terraform-hello-world:
       path: clouds.yaml
     "cloud name": openstack
     flavor: "SCS-1V:1:10"
+    image: "Ubuntu 22.04"
     "public network": public
 ```
 
@@ -152,11 +170,11 @@ tcsctl environment list --column name --column repository
 
 ```console
 tcsctl blueprint list --column name --column repository
-+----+---------------------------------+-------------------------+
-|    | name                            | repository              |
-|----+---------------------------------+-------------------------|
-|  0 | terraform/openstack/hello-world | thecloudsphere/registry |
-+----+---------------------------------+-------------------------+
++----+---------------------------------+----------------------------+
+|    | name                            | repository                 |
+|----+---------------------------------+----------------------------|
+|  0 | terraform/openstack/hello-world | thecloudsphere/hello-world |
++----+---------------------------------+----------------------------+
 ```
 
 ## Deployment creation
@@ -349,8 +367,37 @@ tcsctl deployment delete hello-world
 ```
 
 The same result as in the previous example with the blueprint for Terraform
-can also be produced with a different Infrastructure-as-Code tool For example
-with Ansible. The following commands import a prepared blueprint for Ansible
+can also be produced with a different Infrastructure-as-Code tool, for example
+with Ansible.
+
+Add the following definition to the ``hello-world.yaml`` file.
+
+Flavor, public network or the image to be used must be adapted accordingly depending
+on the OpenStack Cloud.
+
+```yaml
+ansible-hello-world:
+  environment:
+    name: ansible/base
+    repository: thecloudsphere/registry
+    repository_server: https://github.com
+  blueprint:
+    name: ansible/openstack/hello-world
+    repository: thecloudsphere/hello-world
+    repository_server: https://github.com
+  blueprint_version: main
+  inputs:
+    clouds.yaml:
+      type: file
+      path: clouds.yaml
+    "cloud name": openstack
+    flavor: "SCS-1V:1:10"
+    image: "Ubuntu 22.04"
+    prefix: "{{ tcs.name }}"
+    "public network": public
+```
+
+The following commands import the blueprint for Ansible
 and then create the same environment as before with Terraform.
 
 ```console
