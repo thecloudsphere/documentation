@@ -70,8 +70,8 @@ environment:
 See [Inputs & Outputs](inputs-outputs) for details.
 
 ```yaml
-  inputs: []
-  outputs: []
+inputs: []
+outputs: []
 ```
 
 ## Samples
