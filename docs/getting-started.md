@@ -112,10 +112,6 @@ on the OpenStack Cloud.
 
 ```yaml
 terraform-hello-world:
-  environment:
-    name: terraform/openstack
-    repository: thecloudsphere/registry
-    repository_server: https://github.com
   blueprint:
     name: terraform/openstack/hello-world
     repository: thecloudsphere/hello-world
@@ -377,10 +373,6 @@ on the OpenStack Cloud.
 
 ```yaml
 ansible-hello-world:
-  environment:
-    name: ansible/base
-    repository: thecloudsphere/registry
-    repository_server: https://github.com
   blueprint:
     name: ansible/openstack/hello-world
     repository: thecloudsphere/hello-world
