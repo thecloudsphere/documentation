@@ -48,6 +48,8 @@ control:
 
 ### Inputs
 
+See [Inputs & Outputs](inputs-outputs) for details.
+
 ```yaml
 inputs:
   - name: clouds.yaml
@@ -72,6 +74,8 @@ inputs:
 ```
 
 ### Outputs
+
+See [Inputs & Outputs](inputs-outputs) for details.
 
 ```yaml
 outputs:

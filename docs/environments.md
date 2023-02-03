@@ -30,9 +30,11 @@ to which all arguments are passed. In the ``base``environment, ``make`` and a
 ``Makefile`` are used for this.
 
 The ``Makefile`` has defined targets with which the actions are executed. If no
-``Makefile`` is used for processing, then the first argument must be used.
+``Makefile`` is used for processing, then the first argument must be used. For example,
+if the entry point is a script ``/entrypoint.sh`` then the call ``/entrypoint.sh create``
+must start the action to create a deployment.
 
-The following targets must be available:
+The following actions must be available:
 
 * check
 * create
@@ -49,9 +51,28 @@ The following targets must be available:
 
 ### General information
 
-### Inputs
+```yaml
+---
+environment:
+  author: Christian Berendt
+  repository_server: https://github.com
+  repository: thecloudsphere/registry
+  name: base
+  image: harbor.services.osism.tech/thecloudsphere/base
+  command: /environment/run.sh
+  versions:
+    - version: latest
+  description: Base environment
+```
 
-### Outputs
+### Inputs & Outputs
+
+See [Inputs & Outputs](inputs-outputs) for details.
+
+```yaml
+  inputs: []
+  outputs: []
+```
 
 ## Samples
 

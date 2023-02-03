@@ -27,6 +27,8 @@ blueprint_version: main
 
 ### Inputs
 
+See [Inputs & Outputs](inputs-outputs) for details.
+
 ```yaml
 inputs:
   clouds.yaml:
