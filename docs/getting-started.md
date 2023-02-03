@@ -50,7 +50,7 @@ Create the file ``tcs.yaml`` which contains the details of the API and
 the authentication details. If ``password`` is not present in the file, it will be
 requested when using ``tcsctl login``.
 
-```
+```yaml
 # log_level: DEBUG
 profiles:
   default:
@@ -64,14 +64,14 @@ profiles:
 
 To be sure, check that the configuration is valid.
 
-```
+```console
 tcsctl validate config tcs.yaml
 Config tcs.yaml is valid.
 ```
 
 Before you can use the CLI, you have to log in.
 
-```
+```console
 tcsctl login
 Logged in successfully.
 ```
@@ -79,7 +79,7 @@ Logged in successfully.
 The list of usable projects allows you to check whether the login was
 successful.
 
-```
+```console
 tcsctl project list
 +----+--------------------------------+--------------------------------------+---------------------+
 |    | name                           | id                                   | created_at          |
@@ -93,7 +93,7 @@ tcsctl project list
 Create the file ``hello-world.yaml`` which contains a hello-world template for a
 deployment with Terraform on an OpenStack environment.
 
-```
+```yaml
 terraform-hello-world:
   environment:
     name: terraform/openstack
@@ -116,7 +116,7 @@ terraform-hello-world:
 
 To be sure, check that the template is valid.
 
-```
+```console
 tcsctl validate template hello-world.yaml
 Template hello-world.yaml is valid.
 ```
@@ -124,7 +124,7 @@ Template hello-world.yaml is valid.
 Import the template ``terraform-hello-world`` defined in the previously created
 ``hello-world.yaml`` file.
 
-```
+```console
 tcsctl template import hello-world.yaml terraform-hello-world
 +---------------------+--------------------------------------+
 | Field               | Value                                |
@@ -141,7 +141,7 @@ tcsctl template import hello-world.yaml terraform-hello-world
 
 Blueprints and environments can be listed to verify the import.
 
-```
+```console
 tcsctl environment list --column name --column repository
 +----+---------------------+-------------------------+
 |    | name                | repository              |
@@ -150,7 +150,7 @@ tcsctl environment list --column name --column repository
 +----+---------------------+-------------------------+
 ```
 
-```
+```console
 tcsctl blueprint list --column name --column repository
 +----+---------------------------------+-------------------------+
 |    | name                            | repository              |
@@ -164,7 +164,7 @@ tcsctl blueprint list --column name --column repository
 A deployment ``hello-world`` can now be created from the template
 ``terraform-hello-world``.
 
-```
+```console
 tcsctl deployment create hello-world terraform-hello-world
 +-----------------+--------------------------------------+
 | Field           | Value                                |
@@ -182,7 +182,7 @@ tcsctl deployment create hello-world terraform-hello-world
 When the orchestrator selects the deployment for execution, the status is changed
 from ``NONE`` to ``CREATE``.
 
-```
+```console
 tcsctl deployment list --column name --column status
 +----+-------------+----------+
 |    | name        | status   |
@@ -193,7 +193,7 @@ tcsctl deployment list --column name --column status
 
 Once the deployment has been created the status changes to ``CREATED``.
 
-```
+```console
 tcsctl deployment list --column name --column status
 +----+-------------+----------+
 |    | name        | status   |
@@ -207,12 +207,12 @@ tcsctl deployment list --column name --column status
 The public IP address and the SSH keypair for the login can then be retrieved via
 the ``outputs`` command.
 
-```
+```console
 tcsctl deployment outputs hello-world address
 10.100.3.41
 ```
 
-```
+```console
 tcsctl deployment outputs hello-world private_key
 -----BEGIN RSA PRIVATE KEY-----
 MIIEpAIBAAKCAQEA1aiAph+QxP0dp18b04b24oE8+e4FFdxULeKiT4vZssuVRrFy
@@ -224,7 +224,7 @@ available outputs.
 
 With the parameter ``--file``, the output can be written directly to a file.
 
-```
+```console
 tcsctl deployment outputs hello-world private_key --file id_rsa.hello-world
 Output private_key from deployment hello-world was written to file id_rsa.hello-world.
 ```
@@ -235,7 +235,7 @@ The blueprints used in this Getting Started Guide support the control feature.
 A deployment must be in status ``CREATED`` or ``RECONCILED`` for the control
 feature to be usable.
 
-```
+```console
 tcsctl deployment control hello-world
 Welcome to Ubuntu 22.04.1 LTS (GNU/Linux 5.15.0-52-generic x86_64)
 [...]
@@ -247,7 +247,7 @@ ubuntu@hello-world-instance:~$
 The logs that were printed during the creation of the deployment can
 be displayed using the ``tcsctl deployments logs`` command.
 
-```
+```console
 tcsctl deployment logs --show hello-world create
 data.openstack_networking_network_v2.public: Reading...
 data.openstack_networking_network_v2.public: Read complete after 1s [id=665eea18-2b85-427c-b0bf-a6fd040cc0fc]
@@ -264,7 +264,7 @@ Terraform will perform the following actions:
 
 All logs from a specific period for a deployment can also be displayed.
 
-```
+```console
 tcsctl deployment logs hello-world '15 minutes ago'
 +------------+--------------------------------------+---------------------+
 | category   | id                                   | created_at          |
@@ -280,7 +280,7 @@ tcsctl deployment logs hello-world '15 minutes ago'
 
 The ID of a log entry can be used to display a specific log entry.
 
-```
+```console
 tcsctl deployment logs hello-world b0765dac-2f1b-4d7b-84fc-85e328bfa018
 openstack_compute_keypair_v2.tcs: Refreshing state... [id=terraform-keypair]
 data.openstack_networking_network_v2.public: Reading...
@@ -315,7 +315,7 @@ State downloaded and saved to e2172cad-1bd6-486f-800a-ab14fd781781.tar
 
 If the deployment is no longer needed, it can be destroyed.
 
-```
+```console
 tcsctl deployment destroy hello-world
 ```
 
@@ -323,23 +323,23 @@ After a deployment has been destroyed, it can be deleted. All associated logs
 are then also deleted. Before the deployment can be deleted, it must be destroyed.
 Otherwise, an error ``423: Locked`` is issued.
 
-```
+```console
 tcsctl deployment delete hello-world
 ```
 
 If you no longer need to use the CLI, you can log out.
 
-```
+```console
 tcsctl logout
 Logged out successfully.
 ```
 
-## Different Infrastructure-as-Code tool, same result
+## Different IaC tool, same result
 
 Previously, we created a simple environment with a blueprint for Terraform.
 Here is a summary of the necessary commands
 
-```
+```console
 tcsctl template import hello-world.yaml terraform-hello-world
 tcsctl deployment create hello-world terraform-hello-world
 tcsctl deployment outputs hello-world address
@@ -353,7 +353,7 @@ can also be produced with a different Infrastructure-as-Code tool For example
 with Ansible. The following commands import a prepared blueprint for Ansible
 and then create the same environment as before with Terraform.
 
-```
+```console
 tcsctl template import hello-world.yaml ansible-hello-world
 tcsctl deployment create hello-ansible ansible-hello-world
 tcsctl deployment outputs hello-ansible address

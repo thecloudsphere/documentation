@@ -12,8 +12,8 @@ and outputs.
 An input makes contents available via files or environment variables. All currently usable
 types are listed under [Types](#types).
 
-It is possible to define the visibility of the input (``public`` or ``private``) via the
-optional ``visibility`` argument.
+It is possible to define the visibility of the input via the optional ``visibility``
+argument. Possible values are ``public`` and ``private``.
 
 The ``required`` argument can be used to specify whether an input is mandatory or not. 
 Possible values are ``true`` and ``false``.
@@ -102,8 +102,8 @@ Here is an example of an Ansible based deployment that writes a public IP addres
 The content of the ``address`` file can now be read out and made available via an output.
 The ``path`` argument is always relative to ``/output``.
 
-It is possible to define the visibility of the output (``public`` or ``private``) via the
-optional ``visibility`` argument.
+It is possible to define the visibility of the output via the optional ``visibility``
+argument. Possible values are ``public`` and ``private``.
 
 The expected content can be specified for the source via the optional ``type`` argument.
 Before the output is made available, it is checked whether it is an IPv4 address, for example.

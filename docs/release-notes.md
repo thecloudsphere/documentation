@@ -6,9 +6,8 @@ sidebar_position: 100
 
 The release notes were launched on 11.10.2022. At this point, the
 minimum functionality of The Cloudsphere was achieved. The MVP was
-usable both via API itself and via the CLI (`tcsctl`).
-
-A UI was not yet available at that time.
+usable both via API itself and via the CLI (`tcsctl`). A UI was not
+yet available at that time.
 
 ## 1.0.0 (Nighthawk)
 
@@ -246,8 +245,8 @@ Output private_key from deployment hello-world was written to file id_rsa.hello-
 
 There are blueprints that support a console, for example SSH, for
 control. This console can be called up with the command
-`tcsctl deployment control`. A deployment must be in status CREATED or
-RECONCILED for the control feature to be usable.
+`tcsctl deployment control`. A deployment must be in status ``CREATED`` or
+``RECONCILED`` for the control feature to be usable.
 
 Currently, only SSH is supported. In the future, other tools such as
 `kubectl` will be added.
