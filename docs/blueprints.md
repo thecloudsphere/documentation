@@ -17,7 +17,7 @@ versions:
   - version: main
 description: |
   Start a single instance on an OpenStack environment
-schedule: "*/15 * * * *"
+reconcile_schedule: "*/15 * * * *"
 ```
 
 ### Environment
