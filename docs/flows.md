@@ -7,20 +7,24 @@ sidebar_position: 33
 ## Configuration
 
 ```yaml
-flow-sample:
-  name: Sample for a flow
+hello-world:
+  name: Hello world example for a flow
   description: |
-    This is a simple sample for a flow.
+    This is a simple hello world example for a flow.
+  control: Create infrastructure with terraform
   steps:
-    - name: first step
+    - name: Create infrastructure with terraform
       description: |
-        This is the first step.
-      template: python-sample
-    - name: second step
+        This is the first step of the flow. It creates the necessary
+        infrastructure with Terraform on an OpenStack Cloud.
+      template: terraform-hello-world
+    - name: Deploy jupyterhub with Ansible
       description: |
-        This is the second step.
-      template: python-sample
-      depends_on: first step
-      outputs_from: first step
-      state_from: first step
+        This is the second step of the flow. Docker is installed on the
+        previously created infrastructure and then Jupyterhub is started
+        as a service.
+      template: ansible-jupyterhub
+      depends_on: Create infrastructure with terraform
+      outputs_from: Create infrastructure with terraform
+      state_from: Create infrastructure with terraform
 ```
