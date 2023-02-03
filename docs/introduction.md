@@ -19,6 +19,9 @@ The Cloudsphere's mission statement is:
 
 ### What is The Cloudsphere?
 
+* an attempt to realise a small code base for API, orchestrator and runner
+  services (less than 5000 SLOCs)
+
 ### What is The Cloudsphere <u>not</u>?
 
 * an alternative to Infrastructure as Code tool X
