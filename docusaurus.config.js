@@ -79,6 +79,11 @@ const config = {
             label: "Documentation",
           },
           {
+            href: "https://github.com/thecloudsphere/registry",
+            label: "Registry",
+            position: "left",
+          },
+          {
             href: "https://api.demo.thecloudsphere.io/api/v1/redoc",
             label: "API",
             position: "left",
