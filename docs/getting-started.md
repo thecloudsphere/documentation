@@ -145,7 +145,7 @@ tcsctl template import hello-world.yaml terraform-hello-world
 |---------------------+--------------------------------------|
 | blueprint_id        | 803f3163-66b7-4c21-9c42-ef92fdb96fa6 |
 | blueprint_version   | main                                 |
-| environment_id      | d4135a7b-4eff-4e25-9f61-618b81b9a147 |
+| environment_id      |                                      |
 | environment_version |                                      |
 | name                | terraform-hello-world                |
 | id                  | 05aa4b88-50ed-4dd1-8006-64772ae3f0f9 |
@@ -156,21 +156,24 @@ tcsctl template import hello-world.yaml terraform-hello-world
 Blueprints and environments can be listed to verify the import.
 
 ```console
-tcsctl environment list --column name --column repository
-+----+---------------------+-------------------------+
-|    | name                | repository              |
-|----+---------------------+-------------------------|
-|  0 | terraform/openstack | thecloudsphere/registry |
-+----+---------------------+-------------------------+
-```
-
-```console
 tcsctl blueprint list --column name --column repository
 +----+---------------------------------+----------------------------+
 |    | name                            | repository                 |
 |----+---------------------------------+----------------------------|
 |  0 | terraform/openstack/hello-world | thecloudsphere/hello-world |
 +----+---------------------------------+----------------------------+
+```
+
+If an environment has not been explicitly defined in a template, the environment
+defined in the Blueprint is used and provided.
+
+```console
+tcsctl environment list --column name --column repository
++----+---------------------+-------------------------+
+|    | name                | repository              |
+|----+---------------------+-------------------------|
+|  0 | terraform/openstack | thecloudsphere/registry |
++----+---------------------+-------------------------+
 ```
 
 ## Deployment creation
