@@ -1,6 +1,7 @@
 from diagrams import Cluster, Diagram
 from diagrams.aws.general import User
 from diagrams.aws.compute import ECR
+from diagrams.aws.management import SystemsManagerAutomation
 from diagrams.aws.network import APIGateway
 from diagrams.aws.storage import S3
 from diagrams.custom import Custom
@@ -16,8 +17,10 @@ with Diagram(filename="overview"):
         infrastructure_2 = Custom("", "logos/diagrams.png")
         infrastructure_3 = Custom("", "logos/diagrams.png")
 
+
     with Cluster("The Cloudsphere"):
-        timon = APIGateway("Orchestrator")
+        api = APIGateway("API")
+        orchestrator = SystemsManagerAutomation("Orchestrator")
         storage = S3("Storage")
         registry = ECR("Registry")
 
@@ -31,14 +34,16 @@ with Diagram(filename="overview"):
         k8s = Custom("Kubernetes", "logos/k8s.png")
         openstack = Custom("OpenStack", "logos/openstack.png")
 
-    user >> timon
+    user >> api
 
-    timon >> ansible
-    timon >> helm
-    timon >> terraform
-    timon >> storage
+    api >> orchestrator
 
-    registry >> timon
+    orchestrator >> ansible
+    orchestrator >> helm
+    orchestrator >> terraform
+    orchestrator >> storage
+
+    registry >> orchestrator
 
     ansible >> azure
     ansible >> k8s
