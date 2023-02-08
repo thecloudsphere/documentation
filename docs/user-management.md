@@ -23,5 +23,3 @@ A home project with the email address of the respective user is created for each
 user in the ``Default`` organisation.
 
 ## Users
-
-## Teams
