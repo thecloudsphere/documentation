@@ -1,12 +1,12 @@
 from diagrams import Cluster, Diagram
-from diagrams.aws.general import User
 from diagrams.aws.compute import ECR
+from diagrams.aws.general import User
 from diagrams.aws.management import SystemsManagerAutomation
-from diagrams.aws.network import APIGateway
 from diagrams.aws.storage import S3
 from diagrams.custom import Custom
 from diagrams.k8s.ecosystem import Helm
 from diagrams.onprem.iac import Ansible, Terraform
+from diagrams.programming.framework import Fastapi
 
 
 with Diagram(filename="overview"):
@@ -19,7 +19,7 @@ with Diagram(filename="overview"):
 
 
     with Cluster("The Cloudsphere"):
-        api = APIGateway("API")
+        api = Fastapi("API")
         orchestrator = SystemsManagerAutomation("Orchestrator")
         storage = S3("Storage")
         registry = ECR("Registry")
