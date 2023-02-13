@@ -117,6 +117,10 @@ const config = {
                 label: "GitHub",
                 href: "https://github.com/thecloudsphere",
               },
+              {
+                label: "Legals",
+                to: "/legals",
+              },
             ],
           },
         ],
