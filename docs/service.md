@@ -16,6 +16,13 @@ A service account is required to access harbor.services.osism.tech in order
 to download the necessary container image of the Enterprise Edition of The
 Cloudsphere.
 
+```
+$ docker login harbor.services.osism.tech
+Username: robot$REPLACE_THIS_WITH_YOUR_SERVICE_ACCOUNT_NAME
+Password:
+Login Succeeded
+```
+
 ## Requirements
 
 To use The Cloudsphere on-premise service, a virtual instance with the following
