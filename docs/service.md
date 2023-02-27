@@ -47,12 +47,16 @@ Access to all services is via port 443/TCP (HTTPS).
 ## Preparations
 
 Docker and the Docker Compose Plugin for Docker must be installed and usable on the
-virtual system in a current version.
+virtual system in a current version. In a reasonably recent version. Doesn't have to
+be the last version.
 
 The installation of this is documented on docs.docker.com.
 
 * https://docs.docker.com/engine/install/
 * https://docs.docker.com/compose/install/linux/
+
+It basically doesn't matter what operating system it is. It must be Docker usable
+with Docker Compose.
 
 ## Development environment
 
