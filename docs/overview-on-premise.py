@@ -10,7 +10,6 @@ from diagrams.onprem.database import Mariadb
 from diagrams.onprem.iac import Ansible, Terraform
 from diagrams.onprem.inmemory import Redis
 from diagrams.onprem.network import Traefik
-from diagrams.onprem.queue import Rabbitmq
 from diagrams.onprem.registry import Harbor
 from diagrams.onprem.vcs import Git
 from diagrams.programming.framework import Fastapi
@@ -30,7 +29,6 @@ with Diagram(filename="overview-on-premise"):
 
     with Cluster("Infrastructure services"):
         mariadb = Mariadb("MariaDB")
-        rabbitmq = Rabbitmq("RabbitMQ")
         opa = Custom("Open Policy Agent", "logos/opa.png")
         # phpmyadmin = Custom("phpMyAdmin", "logos/phpmyadmin.png")
         # phpredisadmin = Custom("phpRedisAdmin", "logos/phpredisadmin.png")
@@ -71,16 +69,13 @@ with Diagram(filename="overview-on-premise"):
 
     redis - api
 
-    api - rabbitmq
     api - redis
     api - mariadb
     api - storage
 
-    beat - rabbitmq
     beat - redis
     beat - mariadb
 
-    orchestrator - rabbitmq
     orchestrator - redis
     orchestrator - mariadb
 
