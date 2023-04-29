@@ -79,10 +79,8 @@ to the local conditions.
 | ``TCS_IMAGE_KEYCLOAK``                   | ``quay.io/keycloak/keycloak:20.0``                |             |
 | ``TCS_IMAGE_MARIADB``                    | ``mariadb``                                       |             |
 | ``TCS_IMAGE_MINIO``                      | ``minio/minio``                                   |             |
-| ``TCS_IMAGE_OPA``                        | ``openpolicyagent/opa:edge-rootless``             |             |
 | ``TCS_IMAGE_PHPMYADMIN``                 | ``phpmyadmin/phpmyadmin``                         |             |
 | ``TCS_IMAGE_PHPREDISADMIN``              | ``erikdubbelboer/phpredisadmin``                  |             |
-| ``TCS_IMAGE_RABBITMQ``                   | ``rabbitmq``                                      |             |
 | ``TCS_IMAGE_REDIS``                      | ``redis``                                         |             |
 | ``TCS_IMAGE_TRAEFIK``                    | ``traefik``                                       |             |
 | ``TCS_KEYCLOAK_ADMIN_PASSWORD``          | ``password``                                      |             |
