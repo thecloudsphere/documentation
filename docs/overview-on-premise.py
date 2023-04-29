@@ -29,7 +29,6 @@ with Diagram(filename="overview-on-premise"):
 
     with Cluster("Infrastructure services"):
         mariadb = Mariadb("MariaDB")
-        opa = Custom("Open Policy Agent", "logos/opa.png")
         # phpmyadmin = Custom("phpMyAdmin", "logos/phpmyadmin.png")
         # phpredisadmin = Custom("phpRedisAdmin", "logos/phpredisadmin.png")
         redis = Redis("Redis")
@@ -61,8 +60,6 @@ with Diagram(filename="overview-on-premise"):
     traefik - api
     traefik - keycloak
     traefik - storage
-
-    opa - api
 
     directory - keycloak
     keycloak - api
