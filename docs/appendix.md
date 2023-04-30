@@ -148,29 +148,6 @@ source:
   path: str()
 ```
 
-### Flow
-
-```yaml
----
-map(str(), include('flow'))
-
----
-flow:
-  name: str()
-  description: str(multiline=True, required=False)
-  control: str(required=False)
-  steps: list(include('step'), min=1)
-
-step:
-  name: str()
-  description: str(multiline=True, required=False)
-  template: str(required=False)
-  deployment: str(required=False)
-  depends_on: str(required=False)
-  outputs_from: str(required=False)
-  state_from: str(required=False)
-```
-
 ### Template
 
 ```yaml
