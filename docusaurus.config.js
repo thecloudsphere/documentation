@@ -125,7 +125,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} OSISM GmbH`,
+        copyright: `Copyright © ${new Date().getFullYear()} 23 Technologies GmbH`,
       },
     }),
   themes: [

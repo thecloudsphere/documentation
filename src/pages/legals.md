@@ -6,12 +6,12 @@ title: Legals
 
 ## According to § 5 TMG
 
-OSISM GmbH<br />
+23 Technologies GmbH<br />
 Teckstraße 62<br />
 70190 Stuttgart<br />
 Germany<br />
 
-Commercial register: HRB 756139<br />
+Commercial register: HRB 776151<br />
 Court of registry: District Court Stuttgart
 
 Represented by the management:<br />
@@ -21,11 +21,11 @@ Represented by the management:<br />
 
 Phone: [+49 (0) 711-21957006](tel:+4971121957006)<br />
 Fax: +49 (0) 711-21957009<br />
-E-Mail: <info@osism.tech>
+E-Mail: <info@23technologies.cloud>
 
 ## VAT-ID
 
-Value added tax identification number according to § 27 a Value added tax act: **DE305903231**
+Value added tax identification number according to § 27 a Value added tax act: **DE336401289**
 
 ## Information on professional liability insurance
 

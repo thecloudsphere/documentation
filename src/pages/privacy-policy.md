@@ -8,13 +8,13 @@ In the following, we would like to clarify how your data is processed by us.
 
 ## Responsible in the sense of the GDPR is:
 
-OSISM GmbH<br />
+23 Technologies GmbH<br />
 Teckstrasse 62<br />
 70190 Stuttgart<br />
 Germany
 
 Phone: +49 (0) 711-21957006<br />
-E-mail: info@osism.tech
+E-mail: info@23technologies.cloud
 
 If you contact us by e-mail or telephone, the data provided will be stored by us in order to process your request.
 
@@ -32,12 +32,12 @@ As a data subject, you have the right to information, the right to correction or
 
 Please send your objection informally to the following address:
 
-OSISM GmbH<br />
+23 Technologies GmbH<br />
 Teckstrasse 62<br />
 70190 Stuttgart<br />
 Germany
 
-E-mail: info@osism.tech
+E-mail: info@23technologies.cloud
 
 In addition, you have the right to data portability. You further have the right to lodge a complaint about the processing with a supervisory authority. You can find a list of the relevant authorities at: https://www.bfdi.bund.de/DE/Infothek/Anschriften_Links/anschriften_links-node.html.
 
