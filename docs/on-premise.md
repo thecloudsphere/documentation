@@ -78,6 +78,31 @@ Request Let's Encrypt certificates with HTTP-01:
   run
 ```
 
+Store certificates in ``files/traefik/certificates``:
+
+```
+files/traefik/certificates/key/keycloak.demo.thecloudsphere.io.pem
+files/traefik/certificates/key/api.demo.thecloudsphere.io.pem
+files/traefik/certificates/key/minio.demo.thecloudsphere.io.pem
+files/traefik/certificates/cert/keycloak.demo.thecloudsphere.io.pem
+files/traefik/certificates/cert/api.demo.thecloudsphere.io.pem
+files/traefik/certificates/cert/minio.demo.thecloudsphere.io.pem
+```
+
+Edit ``files/traefik/certificates.yml``:
+
+```
+---
+tls:
+  certificates:
+    - certFile: /etc/traefik/certificates/cert/keycloak.demo.thecloudsphere.io.pem
+      keyFile: /etc/traefik/certificates/key/keycloak.demo.thecloudsphere.io.pem
+    - certFile: /etc/traefik/certificates/cert/api.demo.thecloudsphere.io.pem
+      keyFile: /etc/traefik/certificates/key/api.demo.thecloudsphere.io.pem
+    - certFile: /etc/traefik/certificates/cert/minio.demo.thecloudsphere.io.pem
+      keyFile: /etc/traefik/certificates/key/minio.demo.thecloudsphere.io.pem
+```
+
 Access to all services is via port 443/TCP (HTTPS).
 
 ## Preparations
