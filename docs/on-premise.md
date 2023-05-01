@@ -42,6 +42,39 @@ for access to the individual services. The following DNS entries are used by def
 TLS certificates are also required for these DNS entries. Self-signed certificates
 are possible.
 
+Download Let's Encrypt/ACME client:
+
+```
+wget https://github.com/go-acme/lego/releases/download/v4.9.1/lego_v4.9.1_linux_amd64.tar.gz
+tar xvzf lego_v4.9.1_linux_amd64.tar.gz
+rm CHANGELOG.md LICENSE lego_v4.9.1_linux_amd64.tar.gz
+```
+
+Request Let's Encrypt certificates with HTTP-01:
+
+```
+# api.demo.thecloudsphere.io
+./lego \
+  --email info@23technologies.cloud \
+  --http \
+  -d api.demo.thecloudsphere.io \
+  run
+
+# keycloak.demo.thecloudsphere.io
+./lego \
+  --email info@23technologies.cloud \
+  --http \
+  -d keycloak.demo.thecloudsphere.io \
+  run
+
+# minio.demo.thecloudsphere.io
+./lego \
+  --email info@23technologies.cloud \
+  --http \
+  -d minio.demo.thecloudsphere.io \
+  run
+```
+
 Access to all services is via port 443/TCP (HTTPS).
 
 ## Preparations
@@ -65,6 +98,8 @@ git clone https://github.com/thecloudsphere/service
 cd service
 ```
 
+### API service
+
 In the ``.env`` file in this repository, various parameters must be customised
 to the local conditions.
 
@@ -79,8 +114,6 @@ to the local conditions.
 | ``TCS_IMAGE_KEYCLOAK``                   | ``quay.io/keycloak/keycloak:20.0``                |             |
 | ``TCS_IMAGE_MARIADB``                    | ``mariadb``                                       |             |
 | ``TCS_IMAGE_MINIO``                      | ``minio/minio``                                   |             |
-| ``TCS_IMAGE_PHPMYADMIN``                 | ``phpmyadmin/phpmyadmin``                         |             |
-| ``TCS_IMAGE_PHPREDISADMIN``              | ``erikdubbelboer/phpredisadmin``                  |             |
 | ``TCS_IMAGE_REDIS``                      | ``redis``                                         |             |
 | ``TCS_IMAGE_TRAEFIK``                    | ``traefik``                                       |             |
 | ``TCS_KEYCLOAK_ADMIN_PASSWORD``          | ``password``                                      |             |
@@ -89,4 +122,24 @@ to the local conditions.
 
 ```
 docker compose up -d
+```
+
+### Worker service
+
+In the ``.worker.env`` file in this repository, various parameters must be customised
+to the local conditions.
+
+| parameter                     | default value                                              | description |
+| :-----------------------------| :----------------------------------------------------------| :-========= |
+| ``TCS_REDIS_URL``             | ``redis://localhost:6379``                                 |             |
+| ``TCS_CELERY_BROKER_URL``     | ``redis://localhost:6379``                                 |             |
+| ``TCS_CELERY_RESULT_BACKEND`` | ``redis://localhost:6379``                                 |             |
+| ``TCS_MINIO_ACCESS_KEY``      | ``minioadmin``                                             |             |
+| ``TCS_MINIO_BUCKET_NAME``     | ``tcs``                                                    |             |
+| ``TCS_MINIO_SECRET_KEY``      | ``minioadmin``                                             |             |
+| ``TCS_MINIO_SERVER``          | ``minio.demo.thecloudsphere.io``                           |             |
+| ``TCS_SQLMODEL_DATABSE_URL``  | ``mysql+mysqlconnector://tcs:password@localhost:3306/tcs`` |             |
+
+```
+docker compose -f docker-compose.worker.yml -p tcsworker up -d
 ```
