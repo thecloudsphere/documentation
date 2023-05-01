@@ -28,7 +28,7 @@ Login Succeeded
 
 ## Requirements
 
-To use The Cloudsphere on-premise service, a virtual instance with the following
+To use **The Cloudsphere** on-premise service, a virtual instance with the following
 parameters is required.
 
 * 8 vCPUs

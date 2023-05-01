@@ -39,7 +39,7 @@ clouds:
     identity_api_version: 3
 ```
 
-An account on our public The Cloudsphere service or an account on a local Enterprise
+An account on our public **The Cloudsphere** service or an account on a local Enterprise
 installation is required.
 
 ## Preparations
@@ -51,7 +51,7 @@ git clone https://github.com/thecloudsphere/hello-world
 cd hello-world
 ```
 
-Install the CLI for The Cloudsphere with ``pip3 install tcsctl``.
+Install the CLI for **The Cloudsphere** with ``pip3 install tcsctl``.
 [pipenv](https://pipenv.pypa.io/en/latest/) can be used for this as well and is the
 preferred way.
 

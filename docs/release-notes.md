@@ -5,7 +5,7 @@ sidebar_position: 100
 # Release notes
 
 The release notes were launched on 11.10.2022. At this point, the
-minimum functionality of The Cloudsphere was achieved. The MVP was
+minimum functionality of **The Cloudsphere** was achieved. The MVP was
 usable both via API itself and via the CLI (`tcsctl`). A UI was not
 yet available at that time.
 
@@ -22,7 +22,7 @@ MVP.
 -   Python 3.11 is now used as standard in the service container image
 -   This project was initially developed under the internal development
     name Timon. In preparation for the first release, it was renamed
-    "The Cloudsphere" (TCS for short).
+    **The Cloudsphere** (TCS for short).
 -   The documentation has been switched from Sphinx to Docusaurus and
     is now published on [thecloudsphere.io](https://thecloudsphere.io).
 -   The Getting Started Guide from the README of

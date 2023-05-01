@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Introduction
 
-The Cloudsphere efficiently manages your cloud infrastructures 🚀
+**The Cloudsphere** efficiently manages your cloud infrastructures 🚀
 
 The Cloudsphere's mission statement is:
 
