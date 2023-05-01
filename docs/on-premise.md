@@ -4,7 +4,10 @@ sidebar_position: 75
 
 # On-premise
 
-This section describes how The Cloudsphere can be operated as an on-premise service.
+This section describes how **The Cloudsphere** can be operated as an on-premise service.
+
+For deployment, Docker Compose is currently used. In the future, it will be possible to
+deploy the API and control services on Kubernetes.
 
 ## Overview
 
