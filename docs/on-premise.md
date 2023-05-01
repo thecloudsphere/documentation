@@ -105,6 +105,8 @@ tls:
 
 Access to all services is via port 443/TCP (HTTPS).
 
+## Docker Compose
+
 ## Preparations
 
 Docker and the Docker Compose Plugin for Docker must be installed and usable on the
@@ -119,7 +121,7 @@ The installation of this is documented on docs.docker.com.
 It basically doesn't matter what operating system it is. It must be Docker usable
 with Docker Compose.
 
-## Development environment
+### Service repository
 
 ```
 git clone https://github.com/thecloudsphere/service
