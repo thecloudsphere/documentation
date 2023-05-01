@@ -107,7 +107,7 @@ In the ``.env`` file in this repository, various parameters must be customised
 to the local conditions.
 
 | parameter                                | default value                                     | description |
-| :----------------------------------------| :-------------------------------------------------| :---------- |
+| :--------------------------------------- | :------------------------------------------------ | :---------- |
 | ``TCS_DATABASE_PASSWORD``                | ``password``                                      |             |
 | ``TCS_DATABASE_ROOT_PASSWORD``           | ``password``                                      |             |
 | ``TCS_DOMAIN_API``                       | ``api.demo.thecloudsphere.io``                    |             |
@@ -133,7 +133,7 @@ In the ``.worker.env`` file in this repository, various parameters must be custo
 to the local conditions.
 
 | parameter                     | default value                                              | description |
-| :-----------------------------| :----------------------------------------------------------| :-========= |
+| :---------------------------- | :--------------------------------------------------------- | :---------- |
 | ``TCS_REDIS_URL``             | ``redis://localhost:6379``                                 |             |
 | ``TCS_CELERY_BROKER_URL``     | ``redis://localhost:6379``                                 |             |
 | ``TCS_CELERY_RESULT_BACKEND`` | ``redis://localhost:6379``                                 |             |
