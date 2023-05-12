@@ -113,10 +113,7 @@ Docker and the Docker Compose Plugin for Docker must be installed and usable on 
 virtual system in a current version. In a reasonably recent version. Doesn't have to
 be the last version.
 
-The installation of this is documented on docs.docker.com.
-
-* https://docs.docker.com/engine/install/
-* https://docs.docker.com/compose/install/linux/
+The installation of this is documented on docs.docker.com: https://docs.docker.com/engine/install/
 
 It basically doesn't matter what operating system it is. It must be Docker usable
 with Docker Compose.
