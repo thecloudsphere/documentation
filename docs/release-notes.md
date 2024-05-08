@@ -19,15 +19,15 @@ MVP.
 
 ### Other
 
--   Python 3.11 is now used as standard in the service container image
--   This project was initially developed under the internal development
-    name Timon. In preparation for the first release, it was renamed
-    **The Cloudsphere** (TCS for short).
--   The documentation has been switched from Sphinx to Docusaurus and
-    is now published on [thecloudsphere.io](https://thecloudsphere.io).
--   The Getting Started Guide from the README of
-    [thecloudsphere/tcsctl](https://github.com/thecloudsphere/tcsctl)
-    has been integrated into the documentation.
+- Python 3.11 is now used as standard in the service container image
+- This project was initially developed under the internal development
+  name Timon. In preparation for the first release, it was renamed
+  **The Cloudsphere** (TCS for short).
+- The documentation has been switched from Sphinx to Docusaurus and
+  is now published on [thecloudsphere.io](https://thecloudsphere.io).
+- The Getting Started Guide from the README of
+  [thecloudsphere/tcsctl](https://github.com/thecloudsphere/tcsctl)
+  has been integrated into the documentation.
 
 ### Blueprint: environment overrides
 
@@ -38,20 +38,20 @@ blueprint.
 The following properties can be adjusted (if supported by the
 environment used).
 
--   `blueprint_source`
--   `blueprint_source_key`
--   `blueprint_version`
--   `working_directory`
--   `outputs_directory`
--   `makefile`
--   `makefile_pre_processing`
--   `makefile_processing`
--   `makefile_post_processing`
+- `blueprint_source`
+- `blueprint_source_key`
+- `blueprint_version`
+- `working_directory`
+- `outputs_directory`
+- `makefile`
+- `makefile_pre_processing`
+- `makefile_processing`
+- `makefile_post_processing`
 
 The following sample snippet is from the `osism/testbed` blueprint.
 
 There, the blueprint is not imported from the registry but from the
-external repository <https://github.com/osism/testbed.git>. The
+external repository [osism/testbed](https://github.com/osism/testbed.git). The
 directory for the execution of Terraform in this case is
 `/processing/terraform` (instead of `/processing`). The outputs are not
 in `/outputs` but in `/processing/terraform`. For the execution of
