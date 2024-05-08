@@ -99,15 +99,6 @@ const config = {
             ],
           },
           {
-            title: "Community",
-            items: [
-              {
-                label: "Twitter",
-                href: "https://twitter.com/osismtech",
-              },
-            ],
-          },
-          {
             title: "More",
             items: [
               {
