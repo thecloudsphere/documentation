@@ -125,7 +125,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} 23 Technologies GmbH`,
+        copyright: `Copyright © ${new Date().getFullYear()} Christian Berendt`,
       },
     }),
   themes: [
