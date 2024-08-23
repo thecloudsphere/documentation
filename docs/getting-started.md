@@ -123,7 +123,7 @@ terraform-hello-world:
       type: file
       path: clouds.yaml
     "cloud name": openstack
-    flavor: "SCS-1V:1:10"
+    flavor: "SCS-1V-1-10"
     image: "Ubuntu 22.04"
     "public network": public
 ```
@@ -386,7 +386,7 @@ ansible-hello-world:
       type: file
       path: clouds.yaml
     "cloud name": openstack
-    flavor: "SCS-1V:1:10"
+    flavor: "SCS-1V-1-10"
     image: "Ubuntu 22.04"
     prefix: "{{ tcs.name }}"
     "public network": public
