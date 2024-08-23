@@ -15,12 +15,12 @@ deploy the API and control services on Kubernetes.
 
 ## Prerequisites
 
-A service account is required to access harbor.services.osism.tech in order
+A service account is required to access harbor.services.thecloudsphere.io in order
 to download the necessary container image of the Enterprise Edition of The
 Cloudsphere.
 
 ```
-$ docker login harbor.services.osism.tech
+$ docker login harbor.services.thecloudsphere.io
 Username: robot$REPLACE_THIS_WITH_YOUR_SERVICE_ACCOUNT_NAME
 Password:
 Login Succeeded
@@ -58,21 +58,21 @@ Request Let's Encrypt certificates with HTTP-01:
 ```
 # api.demo.thecloudsphere.io
 ./lego \
-  --email info@23technologies.cloud \
+  --email info@b42labs.com \
   --http \
   -d api.demo.thecloudsphere.io \
   run
 
 # keycloak.demo.thecloudsphere.io
 ./lego \
-  --email info@23technologies.cloud \
+  --email info@b42labs.com \
   --http \
   -d keycloak.demo.thecloudsphere.io \
   run
 
 # minio.demo.thecloudsphere.io
 ./lego \
-  --email info@23technologies.cloud \
+  --email info@b42labs.com \
   --http \
   -d minio.demo.thecloudsphere.io \
   run
@@ -130,22 +130,22 @@ cd service
 In the ``.env`` file in this repository, various parameters must be customised
 to the local conditions.
 
-| parameter                                | default value                                     | description |
-| :--------------------------------------- | :------------------------------------------------ | :---------- |
-| ``TCS_DATABASE_PASSWORD``                | ``password``                                      |             |
-| ``TCS_DATABASE_ROOT_PASSWORD``           | ``password``                                      |             |
-| ``TCS_DOMAIN_API``                       | ``api.demo.thecloudsphere.io``                    |             |
-| ``TCS_DOMAIN_KEYCLOAK``                  | ``keycloak.demo.thecloudsphere.io``               |             |
-| ``TCS_DOMAIN_MINIO``                     | ``minio.demo.thecloudsphere.io``                  |             |
-| ``TCS_IMAGE``                            | ``harbor.services.osism.tech/tcs/tcs:latest``     |             |
-| ``TCS_IMAGE_KEYCLOAK``                   | ``quay.io/keycloak/keycloak:20.0``                |             |
-| ``TCS_IMAGE_MARIADB``                    | ``mariadb``                                       |             |
-| ``TCS_IMAGE_MINIO``                      | ``minio/minio``                                   |             |
-| ``TCS_IMAGE_REDIS``                      | ``redis``                                         |             |
-| ``TCS_IMAGE_TRAEFIK``                    | ``traefik``                                       |             |
-| ``TCS_KEYCLOAK_ADMIN_PASSWORD``          | ``password``                                      |             |
-| ``TCS_LISTEN_ADDRESS``                   | ``0.0.0.0``                                       |             |
-| ``TCS_LISTEN_ADDRESS_INTERNAL_SERVICES`` | ``0.0.0.0``                                       |             |
+| parameter                                | default value                                        | description |
+| :--------------------------------------- | :--------------------------------------------------- | :---------- |
+| ``TCS_DATABASE_PASSWORD``                | ``password``                                         |             |
+| ``TCS_DATABASE_ROOT_PASSWORD``           | ``password``                                         |             |
+| ``TCS_DOMAIN_API``                       | ``api.demo.thecloudsphere.io``                       |             |
+| ``TCS_DOMAIN_KEYCLOAK``                  | ``keycloak.demo.thecloudsphere.io``                  |             |
+| ``TCS_DOMAIN_MINIO``                     | ``minio.demo.thecloudsphere.io``                     |             |
+| ``TCS_IMAGE``                            | ``harbor.services.thecloudsphere.io/tcs/tcs:latest`` |             |
+| ``TCS_IMAGE_KEYCLOAK``                   | ``quay.io/keycloak/keycloak:20.0``                   |             |
+| ``TCS_IMAGE_MARIADB``                    | ``mariadb``                                          |             |
+| ``TCS_IMAGE_MINIO``                      | ``minio/minio``                                      |             |
+| ``TCS_IMAGE_REDIS``                      | ``redis``                                            |             |
+| ``TCS_IMAGE_TRAEFIK``                    | ``traefik``                                          |             |
+| ``TCS_KEYCLOAK_ADMIN_PASSWORD``          | ``password``                                         |             |
+| ``TCS_LISTEN_ADDRESS``                   | ``0.0.0.0``                                          |             |
+| ``TCS_LISTEN_ADDRESS_INTERNAL_SERVICES`` | ``0.0.0.0``                                          |             |
 
 ```
 docker compose up -d

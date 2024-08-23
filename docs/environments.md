@@ -58,7 +58,7 @@ environment:
   repository_server: https://github.com
   repository: thecloudsphere/registry
   name: base
-  image: harbor.services.osism.tech/thecloudsphere/base
+  image: harbor.services.thecloudsphere.io/thecloudsphere/base
   command: /environment/run.sh
   versions:
     - version: latest
@@ -82,7 +82,7 @@ The ``base`` environment is a minimal environment that can be used as a basis fo
 creating useful environments. The container image can be found at
 [thecloudsphere/registry/environments/base](https://github.com/thecloudsphere/registry/tree/main/environments/base)
 and is published on our container image registry
-(``harbor.services.osism.tech/thecloudsphere/base:latest``).
+(``harbor.services.thecloudsphere.io/thecloudsphere/base:latest``).
 
 #### Containerfile
 
@@ -186,7 +186,7 @@ environment:
   repository_server: https://github.com
   repository: thecloudsphere/registry
   name: base
-  image: harbor.services.osism.tech/thecloudsphere/base
+  image: harbor.services.thecloudsphere.io/thecloudsphere/base
   command: /environment/run.sh
   versions:
     - version: latest
