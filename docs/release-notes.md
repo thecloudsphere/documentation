@@ -60,7 +60,7 @@ Terraform, `/processing/terraform/Makefile` is used instead of
 
 ``` yaml
 environment:
-  repository: timontech/registry
+  repository: thecloudsphere/registry
   name: terraform/openstack
   version: 1.3.2
   overrides:
@@ -87,9 +87,9 @@ override is ignored.
 When executing a deployment, certain variables are set that always can
 be used.
 
--   `timon.id`: the UUID of a deployment
--   `timon.name`: the name of a deployment
--   `timon.created_at`: the timestamp when a deployment was initially
+-   `tcs.id`: the UUID of a deployment
+-   `tcs.name`: the name of a deployment
+-   `tcs.created_at`: the timestamp when a deployment was initially
     requested
 
 These variables can now be accessed within the `inputs` and `outputs` by
@@ -97,11 +97,11 @@ using [Jinja2](https://jinja.palletsprojects.com/en/3.1.x/).
 
 ``` yaml
 inputs:
-  prefix: "{{ timon.id }}"
+  prefix: "{{ tcs.id }}"
 ```
 
 Additional variables are available in the output. In addition to the
-standard `timon.*` templates, inputs can also be accessed there.
+standard `tcs.*` templates, inputs can also be accessed there.
 However, it is only possible to access inputs of the type `environment`.
 
 For example, if the following input is defined for a blueprint, it can
